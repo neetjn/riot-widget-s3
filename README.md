@@ -1,5 +1,7 @@
 # riot-widget-s3
 
+[![build](https://travis-ci.org/neetjn/riot-widget-s3.svg?branch=master)](https://travis-ci.org/neetjn/riot-widget-s3/)
+
 Generate a Riot.js widget on the fly, upload to s3, and generate your own custom templates.
 
 ## About
