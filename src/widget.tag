@@ -1,5 +1,4 @@
 <{{name}}>
-  <>
   <h1>Hello World</h1>
   <script>
     this.on('mount', () => {
@@ -7,8 +6,11 @@
     })
   </script>
   <style>
-    h1:scope {
-      color: red;
+    :scope {
+      color: blue;
+    }
+    h1 {
+      font-weight: bold;
     }
   </style>
 </{{name}}>
