@@ -9,9 +9,9 @@ const hbs = require('handlebars')
  */
 module.exports = function(config, componentLocation) {
   console.log('Fetching template source...')
-  const source = fs.readFileSync(path.join(__dirname, '../src/template.hbs'))
+  const source = fs.readFileSync(path.join(__dirname, '../src/template.hbs')).toString('utf8')
   console.log('Processing template...')
-  const template = hbs.compile(source)({ location: componentLocation })
+  const template = hbs.compile(source)({ location: componentLocation, name: config.widget.name })
   fs.writeFileSync(path.join(__dirname, '../dist/template.html'), template, 'utf8')
   console.log('Template built')
 }

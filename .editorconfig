@@ -1,6 +1,6 @@
 root = true
 
-[*.{html,js,css,yml,tag,json,scss}]
+[*.{html,js,css,yml,tag,json,scss,hbs}]
 charset = utf-8
 indent_style = space
 indent_size = 2
