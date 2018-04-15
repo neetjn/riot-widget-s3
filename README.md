@@ -1,2 +1,5 @@
 # riot-widget-s3
-Generate a Riot.js component on the fly, upload to s3, and define your own custom templates.
+
+Generate a Riot.js widget on the fly, upload to s3, and generate your own custom templates.
+
+## About

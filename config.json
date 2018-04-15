@@ -1,0 +1,10 @@
+{
+  "aws": {
+    "secretAccessKey": "",
+    "accessKeyId": "",
+    "s3Bucket": ""
+  },
+  "widget": {
+    "name": "widget"
+  }
+}
