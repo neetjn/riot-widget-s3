@@ -9,10 +9,13 @@ const hbs = require('handlebars')
  * @returns {String}
  */
 module.exports = function(config) {
-  const source = fs.readFileSync(path.join(__dirname, '../src/widget.tag'))
-  const tag = hbs.compile(template)({ name: config.widget.name })
+  console.log('Building component...')
+  const source = fs.readFileSync(path.join(__dirname, '../src/widget.tag')).toString('utf8')
+  const tag = hbs.compile(source)({ name: config.widget.name })
   const component = riot.compile(tag.toString('utf8'))
-  const componentPath = path.join(__dirname, `../dist/${config.wiget.name}.js`)
+  console.log('Component compiled')
+  const componentPath = path.join(__dirname, `../dist/${config.widget.name}.js`)
   fs.writeFileSync(componentPath, component, 'utf8')
+  console.log('Component built')
   return componentPath
 }

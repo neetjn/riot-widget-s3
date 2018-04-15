@@ -10,9 +10,9 @@ const uuidv4 = require('uuid/v4')
  */
 module.exports = function(config, componentPath) {
   // # fetch component source
+  console.log('Fetching component source...')
   const component = fs.readFileSync(componentPath).toString('utf8')
   // # setup aws clients
-  aws.config.update(require('./aws.config.json'))
   s3 = new aws.S3()
   var params = {
     Bucket: config.aws.s3Bucket,
@@ -22,11 +22,16 @@ module.exports = function(config, componentPath) {
   }
   var options = { partSize: 10 * 1024 * 1024, queueSize: 1 }
   // # upload component to s3 and return object href
-  return new Promise(() => {
+  console.log('Uploading component...')
+  return new Promise((resolve, reject) => {
     s3.upload(params, options, (error, data) => {
-      if (error)
+      if (error) {
+        console.log(`An error occurred during upload: ${error}`)
         reject(error)
-      resolve(data.Location)
+      } else {
+        console.log(`Upload successful, component href: ${data.Location}`)
+        resolve(data.Location)
+      }
     })
   })
 }
