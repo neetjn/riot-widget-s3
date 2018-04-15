@@ -4,6 +4,7 @@
   "description": "Simple tool for compiling Riot tags and uploading to s3 to be used as a widget.",
   "main": "index.js",
   "scripts": {
+    "test": "node_modules/.bin/eslint core/**.js",
     "build": "node s3-widget.js --build",
     "template": "node s3-widget.js --template"
   },
@@ -29,5 +30,8 @@
     "handlebars": "^4.0.11",
     "riot": "^3.9.2",
     "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1"
   }
 }
