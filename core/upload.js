@@ -13,6 +13,7 @@ module.exports = function(config, componentPath) {
   console.log('Fetching component source...')
   const component = fs.readFileSync(componentPath).toString('utf8')
   // # setup aws clients
+  aws.config.update(config.aws)
   s3 = new aws.S3()
   var params = {
     Bucket: config.aws.s3Bucket,
